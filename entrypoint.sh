@@ -1,0 +1,7 @@
+#!/bin/bash
+set -e
+
+exec gunicorn app.main:app \
+    --workers ${GUNICORN_WORKERS:-2} \
+    --worker-class uvicorn.workers.UvicornWorker \
+    --bind 0.0.0.0:${PORT:-8000}

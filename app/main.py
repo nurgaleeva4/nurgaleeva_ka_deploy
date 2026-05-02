@@ -17,4 +17,8 @@ app.include_router(items.router)
 
 @app.get("/")
 async def root():
-    return {"message": "Hello, World!"}
+    return {
+        "message": "Hello, World!",
+        "environment": settings.environment,
+        "app_name": settings.app_name
+    }
